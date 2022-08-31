@@ -26,4 +26,9 @@ module.exports = [
       },
     },
   },
+  {
+    test: /\.(t|j)sx?$/,
+    exclude: /(node_modules|\.webpack)/,
+    use: {}
+  }
 ];
