@@ -1,8 +1,8 @@
 {
-  "name": "electron-typescript-webpack-2022",
-  "productName": "electron-typescript-webpack-2022",
+  "name": "envelope-budget-app",
+  "productName": "envelope-budget-app",
   "version": "1.0.0",
-  "description": "Personal Electron Boilerplate with Typescript, Webpack and React.",
+  "description": "Personal budget management using the envelope method",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
