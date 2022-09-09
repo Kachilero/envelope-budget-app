@@ -2,19 +2,17 @@
 const rules = require('./webpack.rules');
 // eslint-disable-next-line
 const plugins = require('./webpack.plugins');
-// eslint-disable-next-line
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 rules.push({
   test: /\.css$/,
   use: [
+    { loader: 'style-loader' },
     {
-      loader: MiniCssExtractPlugin.loader,
+      loader: 'css-loader',
       options: {
-        publicPath: './'
+        importLoaders: 2
       }
     },
-    'css-loader',
     {
       loader: 'postcss-loader',
       options: {
@@ -29,12 +27,13 @@ rules.push({
   ],
 });
 
+
 module.exports = {
   module: {
     rules,
   },
   plugins: plugins,
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.module.css'],
   },
 };
