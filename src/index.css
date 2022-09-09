@@ -2,6 +2,55 @@
 @import 'tailwindcss/components.css';
 @import 'tailwindcss/utilities.css';
 
-body {
-  font-family: Roboto, sans-serif;
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: local(Roboto),
+      url('assets/fonts/Roboto/Roboto-Regular.ttf'),
+      url('assets/fonts/Roboto/Roboto-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Black';
+  font-weight: 900;
+  src: local(Roboto Black),
+      local(Roboto-Black),
+      url("assets/fonts/Roboto/Roboto-Black.ttf"),
+      url("assets/fonts/Roboto/Roboto-BlackItalic.ttf");
+}
+
+@font-face {
+  font-family: 'Roboto Bold';
+  font-weight: 700;
+  src: local(Roboto Bold),
+      local(Roboto-Bold),
+      url('assets/fonts/Roboto/Roboto-BoldItalic.ttf'),
+      url('assets/fonts/Roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  font-weight: 300;
+  src: local(Roboto light),
+      local(Roboto-Light),
+      url('assets/fonts/Roboto/Roboto-Light.ttf'),
+      url('assets/fonts/Roboto/Roboto-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Medium';
+  font-weight: 500;
+  src: local(Roboto Medium),
+      local(Roboto-Medium),
+      url('assets/fonts/Roboto/Roboto-Medium.ttf'),
+      url('assets/fonts/Roboto/Roboto-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Thin';
+  font-weight: 100;
+  src: local(Roboto Thin),
+      local(Roboto-thin),
+      url('assets/fonts/Roboto/Roboto-Thin.ttf'),
+      url('assets/fonts/Roboto/Roboto-ThinItalic.ttf');
 }
