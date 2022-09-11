@@ -11,9 +11,18 @@ export type UserType = {
   UUID: string;
 }
 
+export type DrawerState = {
+  bottomDrawerOpen: boolean;
+  leftDrawerOpen: boolean;
+  rightDrawerOpen: boolean;
+  variant?: 'left' | 'right' | 'bottom' | undefined;
+}
+
 /**
  * This is going to be the whole apps state.*/
 export interface AppState {
-  user: UserType;
+  dateTime: string;
   loggedIn: boolean;
+  drawer: DrawerState;
+  user: UserType;
 }
