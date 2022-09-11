@@ -4,8 +4,16 @@ declare module "*.module.css" {
 }
 
 /**
+ * User Object */
+export type UserType = {
+  firstName: string;
+  lastName: string;
+  UUID: string;
+}
+
+/**
  * This is going to be the whole apps state.*/
 export interface AppState {
-  user: object;
+  user: UserType;
   loggedIn: boolean;
 }

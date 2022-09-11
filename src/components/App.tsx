@@ -3,8 +3,12 @@ import { AppWrapper } from "./index";
 import { AppState } from "../Globals";
 
 const DefaultProps: AppState = {
-  user: {},
-  loggedIn: false
+  user: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    UUID: '00001'
+  },
+  loggedIn: true
 }
 
 const App: React.FC = (): JSX.Element => {
