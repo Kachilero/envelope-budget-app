@@ -1,6 +1,6 @@
 import React from "react";
 import LogoContainer from "../LogoContainer";
-import { AppState } from "../../Globals";
+import type { AppState } from "../../Globals";
 
 interface AppWrapperProps extends AppState {
   dateTime?: string;

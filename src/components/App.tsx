@@ -1,6 +1,6 @@
 import React from "react";
 import { AppWrapper } from "./index";
-import { AppState } from "../Globals";
+import type { AppState } from "../Globals";
 
 const DefaultProps: AppState = {
   user: {
