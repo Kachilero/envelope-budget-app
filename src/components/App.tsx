@@ -1,15 +1,15 @@
 import React from "react";
 import { AppWrapper } from "./index";
+import { AppState } from "../Globals";
 
-type AppProps = {};
+const DefaultProps: AppState = {
+  user: {},
+  loggedIn: false
+}
 
-type AppState = {};
-
-type DefaultProps = {}
-
-const App = () => {
+const App: React.FC = (): JSX.Element => {
   // Do stuff!
-  return <AppWrapper />;
+  return <AppWrapper {...DefaultProps}/>;
 }
 
 export default App;

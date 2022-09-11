@@ -1,11 +1,12 @@
 import React from "react";
 import LogoContainer from "../LogoContainer";
+import { AppState } from "../../Globals";
 
-interface AppWrapperProps {}
+interface AppWrapperProps extends AppState {
+  dateTime?: string;
+}
 
-interface AppWrapperState {}
-
-const AppWrapper: React.FC<AppWrapperProps> = (props: AppWrapperProps) => {
+const AppWrapper: React.FC<AppWrapperProps> = (props: AppWrapperProps): JSX.Element => {
   console.log(`%cAppWrapper Props: `, 'color:orange', props);
   return (
     <div className="h-screen w-screen">
