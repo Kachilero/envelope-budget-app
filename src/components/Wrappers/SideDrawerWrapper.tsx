@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { LogoContainer } from "../index";
+import {LeftDrawer, LogoContainer} from "../index";
 import clsx from "clsx";
 import type {DrawerState} from "../../Globals";
 
-interface SideDrawerProps extends DrawerState{
-  bottomDrawerOpen: boolean;
-  leftDrawerOpen: boolean;
-  rightDrawerOpen: boolean;
-  variant?: 'left' | 'right' | 'bottom' | undefined;
+interface SideDrawerProps extends DrawerState {
+  children?: JSX.Element | JSX.Element[];
+  open: boolean;
 }
 
 const SideDrawerWrapper = ({
-  bottomDrawerOpen,
-  leftDrawerOpen,
-  rightDrawerOpen,
-  variant = 'left'
+  variant = 'LEFT',
+  open
 }: SideDrawerProps) => {
   
   // const { open } = props;
   const wrapperClasses = clsx(
     'h-screen', 'bg-slate-700', 'drop-shadow-lg',
     {
-      'max-w-[20%]': bottomDrawerOpen || leftDrawerOpen || rightDrawerOpen,
-      'max-w-[10%]': !leftDrawerOpen,
-      'max-w-0': !bottomDrawerOpen || !rightDrawerOpen,
-      'variant--left': variant === 'left',
-      'variant--right': variant === 'right',
-      'variant--bottom': variant === 'bottom'
+      'max-w-[20%]': open,
+      'max-w-[10%]': variant === 'LEFT' && open,
+      'max-w-0': variant !== 'LEFT' && open,
+      'variant--left': variant === 'LEFT',
+      'variant--right': variant === 'RIGHT',
+      'variant--bottom': variant === 'BOTTOM'
     }
   );
   
   return (
     <div className={wrapperClasses}>
-      <LogoContainer />
-      <LogoContainer />
+      {variant === 'left' ? (
+        <LeftDrawer>
+          <LogoContainer />
+          <LogoContainer />
+        </LeftDrawer>
+        ) : null}
     </div>
   )
 }

@@ -5,7 +5,7 @@ import React from "react";
  * */
 const LogoContainer = () => {
   return (
-    <div className='w-screen h-14 flex flex-row'>
+    <div className='h-16 flex flex-row'>
       [YOUR LOGO HERE]
     </div>
   )

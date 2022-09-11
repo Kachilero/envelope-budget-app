@@ -1,16 +1,12 @@
 import React from "react";
-import { AppWrapper } from "./index";
+import {AppWrapper} from "./index";
 import type { AppState } from "../Globals";
+
 
 const DefaultProps: AppState = {
   dateTime: new Date().toString(),
   loggedIn: true,
-  drawer: {
-    variant: 'left',
-    leftDrawerOpen: true,
-    rightDrawerOpen: true,
-    bottomDrawerOpen: true,
-  },
+  drawer: [{variant: 'LEFT'}],
   user: {
     firstName: '',
     lastName: '',

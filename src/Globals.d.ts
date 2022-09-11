@@ -11,11 +11,10 @@ export type UserType = {
   UUID: string;
 }
 
+export enum VariantEnum { left = 'LEFT', right = 'RIGHT', bottom = 'BOTTOM', undefined = 'UNDEFINED'}
+
 export type DrawerState = {
-  bottomDrawerOpen: boolean;
-  leftDrawerOpen: boolean;
-  rightDrawerOpen: boolean;
-  variant?: 'left' | 'right' | 'bottom' | undefined;
+  variant?: string | string[] | VariantEnum | VariantEnum[] | undefined
 }
 
 /**
@@ -23,6 +22,6 @@ export type DrawerState = {
 export interface AppState {
   dateTime: string;
   loggedIn: boolean;
-  drawer: DrawerState;
+  drawer: DrawerState | DrawerState[];
   user: UserType;
 }
