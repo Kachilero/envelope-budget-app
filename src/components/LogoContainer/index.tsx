@@ -1,8 +1,11 @@
 import React from "react";
-import styles from './logo-container.module.css';
+
+/**
+ * Container to display a logo image
+ * */
 const LogoContainer = () => {
   return (
-    <div className={styles.LogoWrapper}>
+    <div className='w-screen h-14 flex flex-row'>
       [YOUR LOGO HERE]
     </div>
   )

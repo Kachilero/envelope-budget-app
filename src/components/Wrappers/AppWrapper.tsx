@@ -1,6 +1,7 @@
 import React from "react";
 import LogoContainer from "../LogoContainer";
 import type { AppState } from "../../Globals";
+import {SideDrawerWrapper} from "../index";
 
 interface AppWrapperProps extends AppState {
   dateTime?: string;
@@ -10,8 +11,8 @@ const AppWrapper: React.FC<AppWrapperProps> = (props: AppWrapperProps): JSX.Elem
   console.log(`%cAppWrapper Props: `, 'color:orange', props);
   console.log(`%cUser Keys: `, 'color:orange', Object.keys(props.user))
   return (
-    <div className="h-screen w-screen">
-      <LogoContainer />
+    <div className="h-screen max-w-full">
+      <SideDrawerWrapper />
       <div className="md:container mx-auto flex items-center justify-center h-auto">
         <p className="text-3xl">The User:</p>
       </div>
