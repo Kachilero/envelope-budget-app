@@ -1,17 +1,15 @@
 import React from "react";
-import LogoContainer from "./LogoContainer";
+import { AppWrapper } from "./index";
+
+type AppProps = {};
+
+type AppState = {};
+
+type DefaultProps = {}
 
 const App = () => {
-  return (
-    <>
-      <div className="md:container mx-auto flex items-center justify-center h-auto">
-        <LogoContainer />
-      </div>
-      <div className="md:container mx-auto flex items-center justify-center h-auto">
-        <p className="text-3xl">React + Tailwind + Typescript</p>
-      </div>
-    </>
-)
+  // Do stuff!
+  return <AppWrapper />;
 }
 
 export default App;
