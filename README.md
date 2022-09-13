@@ -12,3 +12,5 @@ These are the current technologies:
 * React
 * ESLint
 * NVM
+* CouchDB
+* electron-store
