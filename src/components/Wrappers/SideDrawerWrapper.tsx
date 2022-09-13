@@ -1,39 +1,65 @@
-import React, { useEffect, useState } from "react";
-import {LeftDrawer, LogoContainer} from "../index";
+import React from "react";
+import { BottomDrawer, LeftDrawer, RightDrawer } from "../index";
 import clsx from "clsx";
-import type {DrawerState} from "../../Globals";
+import type { DrawerState}  from "../../Globals";
 
 interface SideDrawerProps extends DrawerState {
   children?: JSX.Element | JSX.Element[];
   open: boolean;
+  variant: 'LEFT' | 'RIGHT' | 'BOTTOM' | undefined;
 }
 
 const SideDrawerWrapper = ({
   variant = 'LEFT',
   open
 }: SideDrawerProps) => {
-  // const { open } = props;
-  const wrapperClasses = clsx(
-    'h-screen', 'bg-slate-700', 'drop-shadow-lg',
+  const commonClasses: string[] = [
+    'h-screen', 'bg-slate-700','drop-shadow-lg', 'max-w-[20%]'
+  ];
+  const leftClasses: object = {
+    'variant--left': variant === 'LEFT',
+    'max-w-[10%]': !open
+  };
+  const rightClasses: object = {
+    'variant--right': variant === 'RIGHT',
+    'hidden': variant === 'RIGHT' && !open
+  };
+  const bottomClasses = clsx(
+    'variant--bottom',
+    'text-slate-50',
+    'bg-slate-700',
+    'drop-shadow-lg',
+    'w-screen',
+    'h-auto',
+    'max-h-[20%]',
+    'max-w-full',
+    'mx-auto',
     {
-      'max-w-[20%]': open,
-      'max-w-[10%]': variant === 'LEFT' && !open,
-      'max-w-0': variant !== 'LEFT' && !open,
-      'variant--left': variant === 'LEFT',
-      'variant--right': variant === 'RIGHT',
-      'variant--bottom': variant === 'BOTTOM'
-    }
+    'hidden': !open
+  });
+  const wrapperClasses = clsx(
+    commonClasses,
+    leftClasses,
+    rightClasses
   );
   
   return (
-    <div className={wrapperClasses}>
-      <p>The Variant is: {variant} and it {open ? 'should' : 'should NOT'} be open</p>
+    <div className={variant === 'BOTTOM' ? bottomClasses : wrapperClasses}>
       {variant === 'LEFT' ? (
-        <LeftDrawer>
-          <LogoContainer />
-          <LogoContainer />
+        <LeftDrawer open={open}>
+          <p>The Variant is: {variant} and it {open ? 'should' : 'should NOT'} be open</p>
         </LeftDrawer>
         ) : null}
+      {variant === 'RIGHT' ? (
+        <RightDrawer open={open}>
+          <p>The Variant is: {variant} and it {open ? 'should' : 'should NOT'} be open</p>
+        </RightDrawer>
+      ) : null}
+      {variant === 'BOTTOM' ? (
+        <BottomDrawer open={open}>
+          <p>The Variant is: {variant} and it {open ? 'should' : 'should NOT'} be open</p>
+        </BottomDrawer>
+      ) : null}
     </div>
   )
 }

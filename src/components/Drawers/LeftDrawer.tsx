@@ -2,10 +2,11 @@ import React from "react";
 import type {DrawerState} from "../../Globals";
 
 interface LeftDrawerProps extends DrawerState {
-  children?: JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
+  open: boolean;
 }
 
-const LeftDrawer = (props: LeftDrawerProps) => {
+const LeftDrawer = (props: LeftDrawerProps): JSX.Element => {
   console.log(`%cLeft Drawer Props: `, 'color:yellow', props);
   
   return (
