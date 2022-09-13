@@ -12,14 +12,13 @@ const SideDrawerWrapper = ({
   variant = 'LEFT',
   open
 }: SideDrawerProps) => {
-  
   // const { open } = props;
   const wrapperClasses = clsx(
     'h-screen', 'bg-slate-700', 'drop-shadow-lg',
     {
       'max-w-[20%]': open,
-      'max-w-[10%]': variant === 'LEFT' && open,
-      'max-w-0': variant !== 'LEFT' && open,
+      'max-w-[10%]': variant === 'LEFT' && !open,
+      'max-w-0': variant !== 'LEFT' && !open,
       'variant--left': variant === 'LEFT',
       'variant--right': variant === 'RIGHT',
       'variant--bottom': variant === 'BOTTOM'
@@ -28,7 +27,8 @@ const SideDrawerWrapper = ({
   
   return (
     <div className={wrapperClasses}>
-      {variant === 'left' ? (
+      <p>The Variant is: {variant} and it {open ? 'should' : 'should NOT'} be open</p>
+      {variant === 'LEFT' ? (
         <LeftDrawer>
           <LogoContainer />
           <LogoContainer />
