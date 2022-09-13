@@ -5,7 +5,7 @@ import type { AppState } from "../Globals";
 const DefaultProps: AppState = {
   dateTime: new Date().toString(),
   loggedIn: true,
-  drawer: [{variant: 'LEFT', open: true }, {variant: 'RIGHT', open: true }, { variant: 'BOTTOM', open: false}],
+  drawer: [{variant: 'LEFT', open: true }, {variant: 'RIGHT', open: false }, { variant: 'BOTTOM', open: false}],
   user: {
     firstName: '',
     lastName: '',
