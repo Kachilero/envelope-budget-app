@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {LeftDrawer, LogoContainer} from "../index";
+import {BottomDrawer, LeftDrawer, LogoContainer, RightDrawer} from "../index";
 import clsx from "clsx";
 import type {DrawerState} from "../../Globals";
 
@@ -29,11 +29,21 @@ const SideDrawerWrapper = ({
     <div className={wrapperClasses}>
       <p>The Variant is: {variant} and it {open ? 'should' : 'should NOT'} be open</p>
       {variant === 'LEFT' ? (
-        <LeftDrawer>
+        <LeftDrawer open={open}>
           <LogoContainer />
           <LogoContainer />
         </LeftDrawer>
         ) : null}
+      {variant === 'RIGHT' ? (
+        <RightDrawer open={open}>
+          <h3>This comes from the SideDrawerWrapper</h3>
+        </RightDrawer>
+      ) : null}
+      {variant === 'BOTTOM' ? (
+        <BottomDrawer open={open}>
+          <h3>This comes from the SideDrawerWrapper</h3>
+        </BottomDrawer>
+      ) : null}
     </div>
   )
 }
