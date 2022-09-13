@@ -46,9 +46,9 @@ const AppWrapper: React.FC<AppState> = (props: AppState): JSX.Element => {
             })}
           </div>
         </div>
-        <SideDrawerWrapper open={true} variant={'RIGHT'} />
+        <SideDrawerWrapper open={false} variant={'RIGHT'} />
       </div>
-      <SideDrawerWrapper open={true} variant={'BOTTOM'} />
+      <SideDrawerWrapper open={false} variant={'BOTTOM'} />
     </>
   );
 };

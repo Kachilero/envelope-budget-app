@@ -22,7 +22,7 @@ const SideDrawerWrapper = ({
   };
   const rightClasses: object = {
     'variant--right': variant === 'RIGHT',
-    'w-0': !open
+    'hidden': variant === 'RIGHT' && !open
   };
   const bottomClasses = clsx(
     'variant--bottom',
@@ -32,9 +32,10 @@ const SideDrawerWrapper = ({
     'w-screen',
     'h-auto',
     'max-h-[20%]',
+    'max-w-full',
     'mx-auto',
     {
-    'h-0': !open
+    'hidden': !open
   });
   const wrapperClasses = clsx(
     commonClasses,
