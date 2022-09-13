@@ -10,6 +10,7 @@ const RightDrawer = (props: RightDrawerProps): JSX.Element => {
   return (
     <div>
       <h2>Right Drawer</h2>
+      {props.children ? props.children : null}
     </div>
   )
 }

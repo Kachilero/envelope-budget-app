@@ -2,7 +2,6 @@ import React from "react";
 import {AppWrapper} from "./index";
 import type { AppState } from "../Globals";
 
-
 const DefaultProps: AppState = {
   dateTime: new Date().toString(),
   loggedIn: true,
@@ -13,6 +12,7 @@ const DefaultProps: AppState = {
     UUID: '00001'
   }
 };
+
 const App: React.FC = (): JSX.Element => {
   // Do stuff!
   return <AppWrapper {...DefaultProps}/>;

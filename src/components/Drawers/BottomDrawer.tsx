@@ -8,8 +8,9 @@ interface BottomDrawerProps extends DrawerState {
 
 const BottomDrawer = (props: BottomDrawerProps): JSX.Element => {
   return (
-    <div>
+    <div className="flex flex-col">
       <h2>Bottom Drawer</h2>
+      {props.children ? props.children : null}
     </div>
   )
 };

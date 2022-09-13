@@ -21,35 +21,35 @@ const AppWrapper: React.FC<AppState> = (props: AppState): JSX.Element => {
   
   console.log(`%cAppWrapper Props: `, 'color:orange', props);
   return (
-    <div className="h-screen max-w-full flex flex-row text-slate-50 bg-slate-800 mx-auto">
-      
-      <SideDrawerWrapper variant={'LEFT'} open={true}/>
-      
-      
-      <div className='h-screen container flex flex-col'>
-        <div className="h-auto">
-          <p className="text-3xl">The User:</p>
-        </div>
-        <div className="h-auto">
-          <div>Logged In: <span className="text-green-500">{loggedIn.toString()}</span></div>
-          <div>Date/Time: <span className="text-green-500">{dateTimeValue}</span></div>
-          {/*<div>Is LeftSideDrawer Open: <span className="text-green-500">{drawer.leftDrawerOpen.toString()}</span></div>
+    <>
+      <div className="h-screen max-w-full flex flex-row text-slate-50 bg-slate-800 mx-auto">
+        <SideDrawerWrapper open={true} variant={'LEFT'} />
+        <div className='h-screen container flex flex-col'>
+          <div className="h-auto">
+            <p className="text-3xl">The User:</p>
+          </div>
+          <div className="h-auto">
+            <div>Logged In: <span className="text-green-500">{loggedIn.toString()}</span></div>
+            <div>Date/Time: <span className="text-green-500">{dateTimeValue}</span></div>
+            {/*<div>Is LeftSideDrawer Open: <span className="text-green-500">{drawer.leftDrawerOpen.toString()}</span></div>
           <div>Is RightSideDrawer Open: <span className="text-green-500">{drawer.rightDrawerOpen.toString()}</span></div>*/}
-          {Object.keys(user).map((userProp, idx) => {
-            return (
-              <div key={idx}>
-                {userProp}: <span className="text-green-500">{
+            {Object.keys(user).map((userProp, idx) => {
+              return (
+                <div key={idx}>
+                  {userProp}: <span className="text-green-500">{
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-ignore
                   user[userProp]
                 }</span>
-              </div>
-            )
-          })}
+                </div>
+              )
+            })}
+          </div>
         </div>
+        <SideDrawerWrapper open={true} variant={'RIGHT'} />
       </div>
-      
-    </div>
+      <SideDrawerWrapper open={true} variant={'BOTTOM'} />
+    </>
   );
 };
 
