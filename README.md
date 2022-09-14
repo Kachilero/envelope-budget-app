@@ -12,3 +12,5 @@ These are the current technologies:
 * React
 * ESLint
 * NVM
+* [electron-store](https://github.com/sindresorhus/electron-store)
+* [Redux](https://redux.js.org/)
