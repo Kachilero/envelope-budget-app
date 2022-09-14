@@ -18,12 +18,6 @@ export const drawerSlice = createSlice({
   initialState,
   reducers: {
     toggleLeftDrawer: state => {
-      console.log(`%cToggle LEFT current = %c${state.left} %cOpposite = %c${!state.left}`,
-        'color:orange',
-        'color:lightgreen',
-        'color:orange',
-        'color:lightgreen'
-      );
       state.left = !state.left;
     },
     toggleRightDrawer: state => {

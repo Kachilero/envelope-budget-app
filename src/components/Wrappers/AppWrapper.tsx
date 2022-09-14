@@ -7,7 +7,7 @@ import {
   selectLeftDrawer,
   selectBottomDrawer,
   selectRightDrawer
-} from "../../Slices/drawers/drawers-slice";
+} from "../../features/drawers/drawers-slice";
 import type { AppState } from "../../Globals";
 import { SideDrawerWrapper } from "../index";
 
