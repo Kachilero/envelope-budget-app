@@ -1,16 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './Slices/counter/counter-slice';
-import { apiSlice } from './Slices/dogs/dogs-api-slice';
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import drawerSlice from "./Slices/drawers/drawers-slice";
+
+const rootReducer = combineReducers({
+  drawers: drawerSlice
+})
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    [apiSlice.reducerPath]: apiSlice.reducer,
-  },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(apiSlice.middleware);
-  },
+  reducer: rootReducer,
 });
 
 export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;

@@ -31,4 +31,4 @@ export const apiSlice = createApi({
   },
 });
 
-// export const { useFetchBreedsQuery } = apiSlice;
+//export const { fetchBreeds } = apiSlice;

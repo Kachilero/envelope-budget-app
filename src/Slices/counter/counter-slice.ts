@@ -13,6 +13,7 @@ const counterSlice = createSlice({
   initialState,
   reducers: {
     incremented(state) {
+      console.log(`%cIncrement`, 'color:red');
       state.value++;
     },
     amountAdded(state, action: PayloadAction<number>) {

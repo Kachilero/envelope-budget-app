@@ -1,4 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useAppSelector, useAppDispatch } from "../../hooks/storeHooks";
+import {
+  toggleLeftDrawer,
+  toggleBottomDrawer,
+  toggleRightDrawer,
+  selectLeftDrawer,
+  selectBottomDrawer,
+  selectRightDrawer
+} from "../../Slices/drawers/drawers-slice";
 import type { AppState } from "../../Globals";
 import { SideDrawerWrapper } from "../index";
 
@@ -12,10 +21,11 @@ import { SideDrawerWrapper } from "../index";
  * */
 const AppWrapper: React.FC<AppState> = (props: AppState): JSX.Element => {
   const { user, loggedIn, drawer, dateTime } = props;
+  const dispatch = useAppDispatch();
+  const leftIsOpen = useAppSelector(selectLeftDrawer);
+  const rightIsOpen = useAppSelector(selectRightDrawer);
+  const bottomIsOpen = useAppSelector(selectBottomDrawer);
   const [dateTimeValue, setDateTimeValue] = useState<string>(dateTime);
-  const [leftDrawerOpen, setLeftDrawerOpen] = useState<boolean>(false);
-  const [rightDrawerOpen, setRightDrawerOpen] = useState<boolean>(false);
-  const [bottomDrawerOpen, setBottomDrawerOpen] = useState<boolean>(false);
   
   /**
    * Set dateTime if it hasn't been set, and set the drawer states from memory
@@ -24,51 +34,13 @@ const AppWrapper: React.FC<AppState> = (props: AppState): JSX.Element => {
     if (!dateTime) {
       setDateTimeValue(new Date().toString());
     }
-    
-    drawer.map((item) => {
-      switch (item.variant) {
-        case 'LEFT':
-          setLeftDrawerOpen(item.open);
-          break;
-        case 'RIGHT':
-          setRightDrawerOpen(item.open);
-          break;
-        case 'BOTTOM':
-          setBottomDrawerOpen(item.open);
-          break;
-        default:
-          setLeftDrawerOpen(true);
-          break;
-      }
-    })
   },[])
-  
-  /**
-   * Toggles Bottom drawer state
-   * */
-  const toggleBottomDrawer = (): void => {
-    setBottomDrawerOpen(!bottomDrawerOpen);
-  }
-  
-  /**
-   * Toggles Left drawer state
-   * */
-  const toggleLeftDrawer = (): void => {
-    setLeftDrawerOpen(!leftDrawerOpen);
-  }
-  
-  /**
-   * Toggles Right drawer state
-   * */
-  const toggleRightDrawer = (): void => {
-    setRightDrawerOpen(!rightDrawerOpen)
-  }
   
   console.log(`%cAppWrapper Props: `, 'color:orange', props);
   return (
     <>
-      <div className="h-screen max-w-full flex flex-row text-slate-50 bg-slate-800 mx-auto transition-all ">
-        <SideDrawerWrapper open={leftDrawerOpen} variant={'LEFT'} />
+      <div className="h-full max-w-full flex flex-row text-slate-50 bg-slate-800 mx-auto transition-all ">
+        <SideDrawerWrapper open={useAppSelector(selectLeftDrawer)} variant={'LEFT'} />
         <div className='h-screen container flex flex-col'>
           <div className="h-auto">
             <p className="text-3xl">The User:</p>
@@ -90,13 +62,13 @@ const AppWrapper: React.FC<AppState> = (props: AppState): JSX.Element => {
               )
             })}
           </div>
-          <button onClick={toggleLeftDrawer}>{leftDrawerOpen ? 'CLOSE' : 'OPEN'} LEFT DRAWER</button>
-          <button onClick={toggleRightDrawer}>{rightDrawerOpen ? 'CLOSE' : 'OPEN'} RIGHT DRAWER</button>
-          <button onClick={toggleBottomDrawer}>{bottomDrawerOpen ? 'CLOSE' : 'OPEN'} BOTTOM DRAWER</button>
+          <button onClick={() => dispatch(toggleLeftDrawer())}>{leftIsOpen ? 'CLOSE' : 'OPEN'} LEFT DRAWER</button>
+          <button onClick={() => dispatch(toggleRightDrawer())}>{rightIsOpen ? 'CLOSE' : 'OPEN'} RIGHT DRAWER</button>
+          <button onClick={() => dispatch(toggleBottomDrawer())}>{bottomIsOpen ? 'CLOSE' : 'OPEN'} BOTTOM DRAWER</button>
         </div>
-        <SideDrawerWrapper open={rightDrawerOpen} variant={'RIGHT'} />
+        <SideDrawerWrapper open={useAppSelector(selectRightDrawer)} variant={'RIGHT'} />
       </div>
-      <SideDrawerWrapper open={bottomDrawerOpen} variant={'BOTTOM'} />
+      <SideDrawerWrapper open={useAppSelector(selectBottomDrawer)} variant={'BOTTOM'} />
     </>
   );
 };
