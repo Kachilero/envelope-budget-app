@@ -1,9 +1,13 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
 import App from "./components/App";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
-const container = document.getElementById('app-main');
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+const root = createRoot(document.getElementById('app-main'));
 
-root.render(<App />);
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

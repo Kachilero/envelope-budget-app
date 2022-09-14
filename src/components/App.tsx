@@ -1,17 +1,21 @@
 import React from "react";
-import LogoContainer from "./LogoContainer";
+import { AppWrapper } from "./index";
+import type { AppState } from "../Globals";
 
-const App = () => {
-  return (
-    <>
-      <div className="md:container mx-auto flex items-center justify-center h-auto">
-        <LogoContainer />
-      </div>
-      <div className="md:container mx-auto flex items-center justify-center h-auto">
-        <p className="text-3xl">React + Tailwind + Typescript</p>
-      </div>
-    </>
-)
+const DefaultProps: AppState = {
+  dateTime: new Date().toString(),
+  loggedIn: true,
+  drawer: [{variant: 'LEFT', open: true }, {variant: 'RIGHT', open: true }, { variant: 'BOTTOM', open: false}],
+  user: {
+    firstName: '',
+    lastName: '',
+    UUID: '00001'
+  }
+};
+
+const App: React.FC = (): JSX.Element => {
+  // Do stuff!
+  return <AppWrapper {...DefaultProps}/>;
 }
 
 export default App;
