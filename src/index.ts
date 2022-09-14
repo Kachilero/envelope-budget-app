@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import installExtension, { REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Store = require('electron-store');
 /**
@@ -49,6 +50,12 @@ app.on('ready', createWindow);
 /***/
 app.whenReady().then(resp => {
   console.log(`%cApp.WhenReady Called: `, 'color:lightgreen', resp);
+  installExtension(REDUX_DEVTOOLS)
+    .then((name) => console.log(`%cAdded Extension: %c${name}`, 'color:orange', 'color:lightgreen'))
+    .catch(err => console.error(`Error occurred trying to install REDUX_DEVTOOLS: `, err));
+  installExtension(REACT_DEVELOPER_TOOLS)
+    .then((name) => console.log(`%cAdded Extension: %c${name}`, 'color:orange', 'color:lightgreen'))
+    .catch(err => console.error(`Error occurred trying to install REACT_DEVELOPER_TOOLS: `, err));
 })
   .catch(err => {
     console.error('Error calling app.whenReady', err);
