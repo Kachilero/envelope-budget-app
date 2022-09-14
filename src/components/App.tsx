@@ -1,5 +1,5 @@
 import React from "react";
-import {AppWrapper} from "./index";
+import { AppWrapper } from "./index";
 import type { AppState } from "../Globals";
 
 const DefaultProps: AppState = {
