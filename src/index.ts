@@ -36,9 +36,9 @@ const createWindow = (): void => {
 };
 
 /**
- * Initiate the Store object for persistent local storage
+ * Initiate the ElectronStore object for persistent local storage
  * */
-const store = new Store();
+const ElectronStore = new Store();
 
 /**
  * This method will be called when Electron has finished
